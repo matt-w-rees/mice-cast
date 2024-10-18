@@ -1,0 +1,100 @@
+﻿habitat_code,habitat_class,habitat_type
+2,Livestock,Piggery (commercial)
+3,Livestock,Chickens (commercial)
+11,Grass Verge,verge adjacent to south boundary of fallow padd
+12,Grass Verge,verge adjacent to north boundary of fallow padd
+13,Grass Verge,verge adjacent to east 
+14,Grass Verge,verge adjacent to west 
+15,Grass Verge,verge adjacent to south 
+16,Grass Verge,verge adjacent to north 
+17,Grass Verge,verge adjacent to east 
+18,Grass Verge,verge adjacent to west 
+19,Roadside Verge,verge adjacent to south boundary of fallow padd
+20,Roadside Verge,verge adjacent to north boundary of fallow padd
+21,Roadside Verge,verge adjacent to east boundary of fallow padd
+22,Roadside Verge,verge adjacent to west boundary of fallow padd
+23,Roadside Verge,verge adjacent to south boundary of cropped padd
+24,Roadside Verge,verge adjacent to north boundary of cropped padd
+25,Roadside Verge,verge adjacent to east boundary of cropped padd
+26,Roadside Verge,verge adjacent to west boundary of cropped padd
+27,Fenceline,Fenceline adj. to south boundary of fallowed/pasture paddock
+28,Fenceline,Fenceline adj. to north boundary of fallowed/pasture paddock
+29,Fenceline,Fenceline adj. to east boundary of fallowed/pasture paddock
+30,Fenceline,Fenceline adj. to west boundary of fallowed/pasture paddock
+31,Fenceline,Fenceline adj. to south boundary of cropped/stubble paddock
+32,Fenceline,Fenceline adj. to north boundary of cropped/stubble paddock
+33,Fenceline,Fenceline adj. to east boundary of cropped/stubble paddock
+34,Fenceline,Fenceline adj. to west boundary of cropped/stubble paddock
+35,Shelter Belts Of Vegetation,Shelter belt between 2 crops or stubble paddocks
+36,Shelter Belts Of Vegetation,Shelter belt between 1 crop or stubble paddock
+37,Shelter Belts Of Vegetation,Shelter belt between no crops or stubble paddocks
+4,Crop/Stubble Types,Saltbush area (Raak)
+5,Crop/Stubble Types,Fallow paddock
+38,Crop/Stubble Types,Canola
+39,Crop/Stubble Types,Vetch
+40,Crop/Stubble Types,Wheat
+41,Crop/Stubble Types,Soy bean
+42,Crop/Stubble Types,Barley
+43,Crop/Stubble Types,Faba bean
+44,Crop/Stubble Types,Oats
+45,Crop/Stubble Types,Chick pea
+46,Crop/Stubble Types,Sorghum
+47,Crop/Stubble Types,Sunflower
+48,Crop/Stubble Types,Ryecorn
+49,Crop/Stubble Types,Corn
+50,Crop/Stubble Types,Triticale
+51,Crop/Stubble Types,Cotton
+52,Crop/Stubble Types,Vegetable
+6,Rice Crops,Rice crop: bay - irrigated
+7,Rice Crops,"Rice crop: bank - irrigated, grazed"
+8,Rice Crops,"Rice crop: bank - irrigated, not grazed"
+9,Rice Crops,"Rice crop: bay - drained, not harvested"
+10,Rice Crops,"Rice crop: bank - drained, not harvested, grazed"
+53,Rice Crops,"Rice crop: bank - drained, not harvested, not grazed"
+54,Rice Crops,Rice stubble: bay - grazed
+55,Rice Crops,Rice stubble: bay - not grazed
+56,Rice Crops,Rice stubble: bank - grazed
+57,Rice Crops,Rice stubble: bank - not grazed
+58,Rice Crops,Field Pea
+59,Rice Crops,Safflower
+1,Farm Buildings,Silo
+60,Farm Buildings,Haystack
+61,Farm Buildings,Machinery
+62,Farm Buildings,Wood heap
+63,Farm Buildings,Pig pen
+64,Farm Buildings,Chicken shed
+65,Farm Buildings,Barn
+66,Farm Buildings,Shearing shed
+67,Farm Buildings,Machinery shed
+68,Farm Buildings,Human dwelling
+69,Farm Buildings,Other
+70,Railways,Railway sidings
+71,Railways,Along railway tracks
+72,Channels (District),Ungrazed channel adj. to crop/stubble - no seepage
+73,Channels (District),Ungrazed channel adj. to fallow - no seepage
+74,Channels (District),Ungrazed channel adj. to crop/stubble - seepage
+75,Channels (District),Ungrazed channel adj. to fallow - seepage
+76,Channels (District),Grazed channel adj. to crop/stubble - no seepage
+77,Channels (District),Grazed channel adj. to fallow - no seepage
+78,Channels (District),Grazed channel adj. to crop/stubble - seepage
+79,Channels (District),Grazed channel adj. to fallow - seepage
+80,Channels (Distribution Or Farm),Ungrazed channel adj. to crop/stubble - no seepage
+81,Channels (Distribution Or Farm),Ungrazed channel adj. to fallow - no seepage
+82,Channels (Distribution Or Farm),Ungrazed channel adj. to crop/stubble - seepage
+83,Channels (Distribution Or Farm),Ungrazed channel adj. to fallow - seepage
+84,Channels (Distribution Or Farm),Grazed channel adj. to crop/stubble - no seepage
+85,Channels (Distribution Or Farm),Grazed channel adj. to fallow - no seepage
+86,Channels (Distribution Or Farm),Grazed channel adj. to crop/stubble - seepage
+87,Channels (Distribution Or Farm),Grazed channel adj. to fallow - seepage
+88,Pasture,Unimproved
+89,Pasture,Improved
+90,Water Reserves/Dams,Dam in paddock
+91,Water Reserves/Dams,Dam in shelter belt
+92,Water Reserves/Dams,Dam near farm
+93,Water Reserves/Dams,Township reserve
+94,Water Reserves/Dams,River bank
+99,Water Reserves/Dams,Natural creek-line
+95,Natural Vegetation,"Callitris, Casurina woodland"
+96,Natural Vegetation,Eucalyptus woodland
+97,Natural Vegetation,Heathland
+98,Natural Vegetation,Other

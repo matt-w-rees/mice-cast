@@ -9,6 +9,10 @@
 # User-specific files
 .Ruserdata
 
+# Raster files
+.tiff
+.tif
+
 # Example code in package build process
 *-Ex.R
 

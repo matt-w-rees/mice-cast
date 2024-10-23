@@ -28,15 +28,18 @@ tar_source("r/")
 # Replace the target list below with your own:
 list(
   
-  ## Extract and clean current monitoring databases
+  ## Extract and clean current monitoring databases: live trapping data
   tar_target(name = access_mon, command = "raw_data/ms_access/MouseMonitoring.accdb", format = "file"),
-  tar_target(name = data_mon, command = extract_monitoring_database_traps(access_mon, habitat_lookup))
- # tar_target(name = data_mon_rap, command = extract_monitoring_database_rapid(access_mon)),
+  tar_target(name = data_mon, command = extract_monitoring_database_traps(access_mon)),
+  tar_target(name = data_mon_clean, command = clean_monitoring_data_traps(data_mon)),
+  
+  ## Extract and clean current monitoring databases: rapid assessment
+  tar_target(name = data_mon_rap, command = extract_monitoring_database_rapid(access_mon))
   
 )
   
 
-# to rerun microsoft access database extraction
+# to rerun Microsoft access database extraction
 #tar_invalidate(starts_with(c("data", "raw", "farm", "habitat", "access", "ALL", "i", "s", "t")))
 #tar_make()
 

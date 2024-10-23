@@ -4,7 +4,7 @@ abares_farm_productivity_file|stem|ea00608d63b4079c|14c94d270cc5df41|2c530c1562a
 abares_farm_productivity_north|stem|d366ed0b2e859cab|135a8358f04d36b4|e1c11629c7b01c67|-1806022381||t19877.1634028995s|7aee8b5c212acc18|883|rds|local|vector|||0.208||
 abares_farm_productivity_south|stem|d1a7f9402b9601d9|89e0dc6be7d2c2f8|e1c11629c7b01c67|-267767727||t19877.1634002267s|724295bd8f9b83e0|892|rds|local|vector|||0.073||
 access_eco|stem|58ff3b67122c87c7|b8519aed6dee4da7|2c530c1562a7fbd1|1693651035|raw_data/ms_access/FreyaEco.accdb|t19681.9602759538s|ec192d735f548986|5242880|file|local|vector|||0||
-access_mon|stem|9487bc8fbb6bb558|875d0db12e1484ab|2c530c1562a7fbd1|-2105046388|raw_data/ms_access/MouseMonitoring.accdb|t19664.1463120169s||9437184|file|local|vector|||3.599|no nonmissing arguments to max returning Inf|could not find packages cropgrowdays, RcppRoll, qs in library paths
+access_mon|stem|b29227645ac7d0cc|875d0db12e1484ab|2c530c1562a7fbd1|-2105046388|raw_data/ms_access/MouseMonitoring.accdb|t20007.0868515947s|535ee8edb05255fb|7573504|file|local|vector|||2.232||
 add_agroeco_region|function|92ce20d1e46fd0ea|||||||||||||||
 add_grdc_ae_region|function|05dace99d5efa29f|||||||||||||||
 ALLFARMS|stem|e8e74faf0b46370d|5312ac125528d17e|a6eee399745ce187|735102174||t19877.1634075463s|7d3c1b0ce0977774|69095|rds|local|vector|||0.043||
@@ -21,6 +21,7 @@ clean_historic_data_coleambally|function|3cfac4c8a66c5ede|||||||||||||||
 clean_historic_data_qld|function|146832f213c1d9e9|||||||||||||||
 clean_historic_data_roseworthy|function|637aa70a1ed8d8a5|||||||||||||||
 clean_historic_data_walpeup|function|7047f07ee1547942|||||||||||||||
+clean_monitoring_data_traps|function|96edb3516cbe1aae|||||||||||||||
 combine_datasets|function|54c3e497456ecd9d|||||||||||||||
 combine_trap_datasets|function|a73d2c0228bbd3c4|||||||||||||||
 condense_crops|function|2bd4a75387b3c026|||||||||||||||
@@ -32,7 +33,8 @@ data_col|stem|dbd7c82bb5cbb74d|473b3d6b67751b1f|1a80be8c33cde91c|278917473||t198
 data_eco|stem|15c36f9c399f1986|6d22908c3e2bc005|60326244bfd8f25b|1565849153||t19877.1635513191s|4605d1a5a9460d84|110699|rds|local|vector|||0.533||
 data_good|stem|5d277bf1be05c3b4|ed696c33d07b0add|5466cb0aa449d22f|1101720804||t19877.1634033932s|2ef4be9379b6c01b|9334|rds|local|vector|||0.028||
 data_good_file|stem|ccf636511bb146e4|2e2a5d5a2a7d324c|2c530c1562a7fbd1|-1713596956|raw_data/queensland/qld_captures_2001_09_matt.csv|t19306.2010069444s|0da199e64792e258|86190|file|local|vector|||0||
-data_mon|stem|287be6468a220ef2|c43d9699f4c98b3a|5a913a640a2d3c4b|1347986329||t19877.1647131762s|ace6a937181c3bf7|44810|rds|local|vector|||0.77||
+data_mon|stem|072a9f9ef8d8c097|205b0aede6a4b7df|eb7df80ebefab74d|1347986329||t20014.0887575323s|d930271576a2009d|54692|rds|local|vector|||0.688||
+data_mon_clean|stem|d008cdabef96603d|e8c130520b9de917|d4123f00f8552c58|-1068301048||t20014.2109031588s|e160d17510f25345|40894|rds|local|vector|||0.359||
 data_mon_rap|stem|2b9e363341040a5c|140c58420dee8c89|1dd1c4af1f26d5bd|-1573654053||t19877.1633993148s|f496348e5d4b8fba|31676|rds|local|vector|||0.998||
 data_month|stem|ec19b30343ac05fe|803cf51f11f0214b|753607d24c6d3906|-1942266761||t19878.001276566s|48605e4b29afb37e|15618|rds|local|vector|||1.047||
 data_month_v1|stem|492cf6bde0807697|a51920385f699836|8b074f9098779975|2134300314||t19878.0012782692s|fa1592d21732b36d|17175|rds|local|vector|||0.134||
@@ -55,7 +57,7 @@ download_soil_moisture_file|function|2506aae13409e3c6|||||||||||||||
 extract_ecology_database|function|57d99490a97c9446|||||||||||||||
 extract_monitoring_database|function|7b9ceccc8d9259a8|||||||||||||||
 extract_monitoring_database_rapid|function|76a5f79275d34273|||||||||||||||
-extract_monitoring_database_traps|function|47712419a2cd2127|||||||||||||||
+extract_monitoring_database_traps|function|0c15552c4d515f4b|||||||||||||||
 farm_coordinates|stem|c4e606e18586a4b8|f9bc2e27f574635e|5dc2775e00b00dba|-796847356||t19877.1635436338s|c3142e3a75515cc7|585|rds|local|vector|||0.025||
 farm_coordinates_file|stem|7479b47ad4b5a98f|cef67217d62bae3e|2c530c1562a7fbd1|689826341|raw_data/coleambally/farm_coordinates.csv|t19347.0759953704s|266c0e3d4338ce52|437|file|local|vector|||0||
 format_data_for_mvgam|function|b462997ffdc1f7e4|||||||||||||||

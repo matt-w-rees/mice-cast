@@ -206,6 +206,9 @@ counts_grids$site <- if_else(counts_grids$site == "Trifel1", "Trifel", counts_gr
 x <- transmute(counts_grids, region, site, subsite, longitude, latitude) %>% unique()
 
 
+# Trifel onwards probably fine - number sites not so much
+
+
 
 
 # make a new data set with every year / site combinatation, adding in NA's for unsurveyed 

@@ -72,7 +72,7 @@ extract_monitoring_database_traps <- function(access_mon){
   }
   
   
-# STITCH TOGETHER TABLES --------------------------------------------------
+  # STITCH TOGETHER TABLES --------------------------------------------------
   
   ## SOUTH
   # renames columns so they match name of corresponding column in tbl2SessionSouth
@@ -123,8 +123,8 @@ extract_monitoring_database_traps <- function(access_mon){
     filter(!(is.na(TrapInfoID))) # remove rows without trapping data - this must be because these sites were only rapidly assessed?
   
   
-# COMBINE / CLEAN TRAPPING DATA ---------------------------------------------
- 
+  # COMBINE AND CLEAN NORTHERN AND SOUTHERN DATA ---------------------------------------------
+  
   ## MAKE COLUMNS THE SAME FOR NORTH AND SOUTH
   # remove spaces / make lowercase
   names(DataCHNorth) <- tolower(names(DataCHNorth))

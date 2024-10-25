@@ -4,14 +4,14 @@
 # (3) stitches together tables from southern (1 table) and northern (2 tables) regions (including so minor cleaning and error fixing)
 # (4) writes two csvs seperating active burrow counts and chewcards (but returns single dataframe for targets pipeline)
 
-extract_monitoring_database_rapid <- function(access_mon){
+extract_monitoring_database_rapid <- function(access_monitoring){
   
   
   # EXTRACT DATA FROM MICROSOFT ACCESS --------------------------------------
   
   # for testing
   # specify path to access database
-  #access_mon <- "raw_data/ms_access/MouseMonitoring.accdb"
+  #access_monitoring <- "raw_data/ms_access/MouseMonitoring.accdb"
   
   
   # check if mac or windows
@@ -21,7 +21,7 @@ extract_monitoring_database_rapid <- function(access_mon){
   if (x[1] == "Windows") {
     
     # define path
-    PATH <- paste0("Driver={Microsoft Access Driver (*.mdb, *.accdb)};", "DBQ=", access_mon)
+    PATH <- paste0("Driver={Microsoft Access Driver (*.mdb, *.accdb)};", "DBQ=", access_monitoring)
     
     # establish connection to access database
     channel <- odbcDriverConnect(PATH)
@@ -52,20 +52,20 @@ extract_monitoring_database_rapid <- function(access_mon){
     
   ## Download tables from database
   # south
-  tblDataSiteNameID    <- mdb.get(access_mon, "tblDataSiteNameID") %>% remove_all_labels()
-  tblCropTypeID        <- mdb.get(access_mon, "tblCropTypeID") %>% remove_all_labels()
-  tblCropStageID       <- mdb.get(access_mon, "tblCropStageID") %>% remove_all_labels()
-  tbl1SiteDataSouth    <- mdb.get(access_mon, "tbl1SiteDataSouth") %>% remove_all_labels()
-  tbl2SessionSouth     <- mdb.get(access_mon, "tbl2SessionSouth") %>% remove_all_labels()
-  tblRapidAssessSouth  <- mdb.get(access_mon, "tblRapidAssessSouth") %>% transform(DateSet = ymd(DateSet), DateRecovered = ymd(DateRecovered)) %>% remove_all_labels()
+  tblDataSiteNameID    <- mdb.get(access_monitoring, "tblDataSiteNameID") %>% remove_all_labels()
+  tblCropTypeID        <- mdb.get(access_monitoring, "tblCropTypeID") %>% remove_all_labels()
+  tblCropStageID       <- mdb.get(access_monitoring, "tblCropStageID") %>% remove_all_labels()
+  tbl1SiteDataSouth    <- mdb.get(access_monitoring, "tbl1SiteDataSouth") %>% remove_all_labels()
+  tbl2SessionSouth     <- mdb.get(access_monitoring, "tbl2SessionSouth") %>% remove_all_labels()
+  tblRapidAssessSouth  <- mdb.get(access_monitoring, "tblRapidAssessSouth") %>% transform(DateSet = ymd(DateSet), DateRecovered = ymd(DateRecovered)) %>% remove_all_labels()
   # north
-  tbl1SiteDataNorth       <- mdb.get(access_mon, "tbl1SiteDataNorth") %>% remove_all_labels()
-  tblSessionIDNorth       <- mdb.get(access_mon, "tblSessionIDNorth")  %>% transform(Start.Date = ymd(Start.Date), End.Date = ymd(End.Date)) %>% remove_all_labels()
-  tblCropTypeNorthID      <- mdb.get(access_mon, "tblCropTypeNorthID") %>% remove_all_labels()
-  tblCropStageNorthID     <- mdb.get(access_mon, "tblCropStageNorthID") %>% remove_all_labels()
-  tblDataSiteNameNorthID  <- mdb.get(access_mon, "tblDataSiteNameNorthID") %>% remove_all_labels()
-  tbl2SessionNorth        <- mdb.get(access_mon, "tbl2SessionNorth") %>% remove_all_labels()
-  tblRapidAssessNorth     <- mdb.get(access_mon, "tblRapidAssessNorth") %>% transform(DateSet = ymd(DateSet), DateRecovered = ymd(DateRecovered)) %>% remove_all_labels()
+  tbl1SiteDataNorth       <- mdb.get(access_monitoring, "tbl1SiteDataNorth") %>% remove_all_labels()
+  tblSessionIDNorth       <- mdb.get(access_monitoring, "tblSessionIDNorth")  %>% transform(Start.Date = ymd(Start.Date), End.Date = ymd(End.Date)) %>% remove_all_labels()
+  tblCropTypeNorthID      <- mdb.get(access_monitoring, "tblCropTypeNorthID") %>% remove_all_labels()
+  tblCropStageNorthID     <- mdb.get(access_monitoring, "tblCropStageNorthID") %>% remove_all_labels()
+  tblDataSiteNameNorthID  <- mdb.get(access_monitoring, "tblDataSiteNameNorthID") %>% remove_all_labels()
+  tbl2SessionNorth        <- mdb.get(access_monitoring, "tbl2SessionNorth") %>% remove_all_labels()
+  tblRapidAssessNorth     <- mdb.get(access_monitoring, "tblRapidAssessNorth") %>% transform(DateSet = ymd(DateSet), DateRecovered = ymd(DateRecovered)) %>% remove_all_labels()
   }
   
   

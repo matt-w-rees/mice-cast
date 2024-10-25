@@ -12,7 +12,7 @@ clean_monitoring_data_traps <- function(data){
   data <- filter(data, !(is.na(date) & is.na(session)))
   # the remaining rows have a session number - remove for now but come back to - might be salvageable?
   data <- filter(data, !(is.na(date)))
-  # this is obvs a typo - fix it:
+  # this is obvs a typo - fix it: 
   data$date <- if_else(data$datasitenameold == "JWAF2Scrub" & data$date == "2014-03-14",  ymd("2014-03-24"), data$date)
   # delete this row - appears to be just a repeat with the wrong session ID
   data <- filter(data, !(datasitenameold == "29 & 30/30" & date == "2013-05-06" & session == "6"))
@@ -46,7 +46,6 @@ clean_monitoring_data_traps <- function(data){
       date_start_session = 99,       # placeholder (see below)
       date_end_session = 99,         # placeholder (see below)
       session_length_days = 99,      # placeholder (see below)
-      position = "99", #             # placeholder (see below)
       crop_type = ifelse(north_south == "north", tolower(croptypeold), tolower(cropname)),  
       crop_stage = tolower(cropstageold), 
       trap_type = traptype, 
@@ -58,6 +57,7 @@ clean_monitoring_data_traps <- function(data){
       traps_night = traps_set - phantoms, 
       mice_night = totalcaptures, 
       # individual data
+      glm = glm,
       trap_location_x = traplocationx, 
       trap_location_y = traplocationy, 
       individual_id = pittag,
@@ -122,49 +122,8 @@ clean_monitoring_data_traps <- function(data){
   data_clean$pregnant <- ifelse(data_clean$pregnant == 1,   "no",            data_clean$pregnant)
   data_clean$pregnant <- ifelse(data_clean$pregnant == "2", "yes",           data_clean$pregnant)
   
-  
+    
 
-  # ADD SUBSITE DETAILS --------------------------------------------------------
-  # position = crop (in the actual crop), fence (fenceline between two crops), scrub (in or on a fenceline adjacent to scrub)
-  
-  
-  # region == "Northern Mallee" 
-  data_clean$position <- if_else(data_clean$subsite %in% c("JWC Crop", "JW1StubPad", "JWA TGCrop", "JWB TGCrop", "JW2Crop"), "crop", data_clean$position)
-  data_clean$position <- if_else(data_clean$subsite %in% c("JWAF1Crop"), "fence", data_clean$position) 
-  data_clean$position <- if_else(data_clean$subsite %in% c("JWAF2Scrub", "JW2Edge"), "scrub", data_clean$position)
-  
-  # region == "Adelaide Plains" 
-  data_clean$position <- if_else(data_clean$subsite %in% c("JLA TG", "JLB TG", "TuckEast", "PLHB", "BTHB TG", "RK Murphy TG"), "crop", data_clean$position)
-  data_clean$position <- if_else(data_clean$subsite %in% c("RK Murphy FL", "JLBF2Crop", "TuckEastFL", "BTHB FL"), "fence", data_clean$position) 
-  data_clean$position <- if_else(data_clean$subsite %in% c("JLAF1Scrub"), "scrub", data_clean$position)  
-
-  # region == "Central West NSW"
-  data_clean$position <- if_else(data_clean$subsite %in% c("GR2 TG1 AB", "GR2 TG2 AB"), "crop", data_clean$position)
-  data_clean$position <- if_else(data_clean$subsite %in% c("GR2 FL 1 E-W"), "fence", data_clean$position) 
-  data_clean$position <- if_else(data_clean$subsite %in% c("GR2 FL 2 N-S"), "scrub", data_clean$position)  
-  
-  # region == "Central Downs"
-  
-  x <- select(data_clean, region, site, subsite, position) %>% unique
-  write.csv(x, "monitoring_sites.csv")
-  
-  
-   tmp <- dplyr::filter(data_clean, region == "Downs Central")
-   unique(tmp$subsite)
-   
-  
- 
-  tmp <- dplyr::filter(data_mon, datasitenameold ==  "JW2Edge")
-    
-    # mallala
-    
-    
-    # central downs
-    
-    
-    
-    data_clean$subsite
-    
   # ADD SESSION DETAILS -----------------------------------------------------
   data_clean <- data_clean %>% 
     group_by(site, subsite, session, trap_type) %>%
@@ -177,17 +136,9 @@ clean_monitoring_data_traps <- function(data){
   # remove 'session' variable as it is rather meaningless - can now denote from date start / end 
   data_clean$session <- NULL
   
-  # REDO CAPTURE SUMMARIES -------------------------------------------------------
-  # recalculate total captures -- by subsite - for each night -- and add columns for available traps and proportion trap rate
-  data_clean <- data_clean %>% 
-    group_by(site, subsite, date_start_session, survey_night) %>% 
-    mutate(mice_night = ifelse(is.na(class) & is.na(fate) & is.na(weight_g) & is.na(sex) & is.na(uterus) & is.na(uterus_scars) & is.na(embryos) & is.na(embryo_length) &is.na(testis), 0, n()))  %>% 
-    ungroup()  
   
-
   # ARRANGE BY SITE / DATE / SUBSITE ----------------------------------------
   data_clean <- arrange(data_clean, site, date, subsite)
-  
   
   
   # SAVE --------------------------------------------------------------------

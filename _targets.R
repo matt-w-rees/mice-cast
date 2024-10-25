@@ -29,14 +29,18 @@ tar_source("r/")
 list(
   
   ## Extract and clean current monitoring databases: live trapping data
-  tar_target(name = access_mon, command = "raw_data/ms_access/MouseMonitoring.accdb", format = "file"),
-  tar_target(name = data_mon, command = extract_monitoring_database_traps(access_mon)),
-  tar_target(name = data_mon_clean, command = clean_monitoring_data_traps(data_mon)),
+  tar_target(name = access_monitoring, command = "raw_data/ms_access/MouseMonitoring.accdb", format = "file"),
+  tar_target(name = data_monitoring_traps, command = extract_monitoring_database_traps(access_monitoring)),
+  tar_target(name = data_monitoring_traps_clean, command = clean_monitoring_data_traps(data_monitoring_traps)),
   
   ## Extract and clean current monitoring databases: rapid assessment
-  tar_target(name = data_mon_rap, command = extract_monitoring_database_rapid(access_mon))
+  tar_target(name = data_monitoring_rapid, command = extract_monitoring_database_rapid(access_monitoring)),
   
-)
+  ## Further clean for modelling and combine three different datatype dataframes in a list
+  tar_target(name = datatypes_list, command = clean_list_datatypes(data_monitoring_traps_clean, data_monitoring_rapid))
+  
+  # add AE ZONE AND RAINFALL
+  )
   
 
 # to rerun Microsoft access database extraction

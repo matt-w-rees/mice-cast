@@ -4,6 +4,10 @@ clean_list_datatypes <- function(data_monitoring_traps_clean, data_monitoring_ra
   #tar_load(data_monitoring_traps_clean)
   #tar_load(data_monitoring_rapid)
   
+  # REMOVE DATA WITH MISSING KEY VARIABLES ----------------------------------
+  data_monitoring_traps_clean <- filter(data_monitoring_traps_clean, !(is.na(longitude) | is.na(latitude) | is.na(date_start_session) | is.na(date_end_session)))
+  data_monitoring_rapid <- filter(data_monitoring_rapid, !(is.na(longitude) | is.na(latitude) | is.na(date_set) | is.na(date_recovered)))
+  
   
   # REMOVE DATA NOT CONDUCTED IN CROPS --------------------------------------
   # checked these with steve (southern sites, he wasn't sure about northern)
@@ -48,6 +52,12 @@ clean_list_datatypes <- function(data_monitoring_traps_clean, data_monitoring_ra
                                             ifelse(data$crop_stage %in% c("seedling", "young (no flowers/head)", "young"), "tillering", 
                                                    ifelse(data$crop_stage %in% c("n/a", "fallow") | grepl("graze", data$crop_stage) | grepl("road", data$crop_stage) | grepl("farm", data$crop_stage), NA, data$crop_stage)))))
     
+    # if there are crop stages with fewer than x rows, remove
+    data <- data %>%
+      group_by(crop_stage) %>%
+      dplyr::filter(n() > 15) %>%
+      ungroup()
+    
     ## deal with fallow
     # lets put fallow as grain (crop_type), and make fallow a crop stage 
     data$crop_stage <- if_else(data$crop_type == "fallow", "fallow", data$crop_stage)
@@ -86,10 +96,9 @@ clean_list_datatypes <- function(data_monitoring_traps_clean, data_monitoring_ra
       
   
   # RAPID ASSESSMENT DATA: FUTHER CLEAN -----------------------------------------------------------
-  # for consistency with trapping data, introduce a 'date' column, which is the day the cards were retrieved / burrow activity was assessed
-  data_monitoring_rapid_filtered <- rename(data_monitoring_rapid_filtered, date = date_recovered)
-  data_monitoring_rapid_filtered$date_set <- NULL # and now don't need this 
-  
+  # for consistency with trapping data
+  data_monitoring_rapid_filtered <- rename(data_monitoring_rapid_filtered, date_start_session = date_set, date_end_session = date_recovered)
+
   # remove comment columns 
   data_monitoring_rapid_filtered <- select(data_monitoring_rapid_filtered, !(matches("comments")))
   
@@ -97,9 +106,9 @@ clean_list_datatypes <- function(data_monitoring_traps_clean, data_monitoring_ra
   data_monitoring_rapid_filtered_burrows <- dplyr::select(data_monitoring_rapid_filtered, !(matches("chewcard")))
   data_monitoring_rapid_filtered_chewcards <- dplyr::select(data_monitoring_rapid_filtered, !(matches("burrow")))
   
-  # now remove empty rows due to no effort (instances where burrows where searched but no chewcards, vice versa)
-  data_monitoring_rapid_filtered_burrows <- dplyr::filter(data_monitoring_rapid_filtered_burrows, !(is.na(burrow_effort)))
-  x <- filter(data_monitoring_rapid_filtered_chewcards, !(if_all(starts_with("chewcard."), ~ is.na(.))))
+  # now remove empty rows due to no effort (instances where burrows where searched but no chewcards, vice versa) - THESE ARE NOW REMOVED IN EXTRACTION SCRIPT
+  #data_monitoring_rapid_filtered_burrows <- dplyr::filter(data_monitoring_rapid_filtered_burrows, !(is.na(burrow_effort)))
+  #data_monitoring_rapid_filtered_chewcards <- filter(data_monitoring_rapid_filtered_chewcards, !(if_all(starts_with("chewcard."), ~ is.na(.))))
   
   # convert chewcards to presence / absence (1 / 0)
   data_monitoring_rapid_filtered_chewcards <- data_monitoring_rapid_filtered_chewcards %>%
@@ -107,7 +116,7 @@ clean_list_datatypes <- function(data_monitoring_traps_clean, data_monitoring_ra
   
   
   # SAVE DATA TYPES AS LIST AND RETURN -------------------------------------------------
-  data_list <- list(data_monitoring_traps_clean_filtered_wide, data_monitoring_rapid_filtered_burrows, data_monitoring_rapid_filtered_chewcards)
+  data_list <- list(unique(data_monitoring_traps_clean_filtered_wide), unique(data_monitoring_rapid_filtered_burrows), unique(data_monitoring_rapid_filtered_chewcards))
   names(data_list) <- c("traps", "burrows", "chewcards")
   
   return(data_list)

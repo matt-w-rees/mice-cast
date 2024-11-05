@@ -37,9 +37,14 @@ list(
   tar_target(name = data_monitoring_rapid, command = extract_monitoring_database_rapid(access_monitoring)),
   
   ## Further clean for modelling and combine three different datatype dataframes in a list
-  tar_target(name = datatypes_list, command = clean_list_datatypes(data_monitoring_traps_clean, data_monitoring_rapid))
+  tar_target(name = data_list, command = clean_list_datatypes(data_monitoring_traps_clean, data_monitoring_rapid)),
   
-  # add AE ZONE AND RAINFALL
+  # add AE ZONE 
+  tar_target(name = data_list_ae, command = lapply(data_list, attach_vars_agroeco_region)),
+  
+  # add season and year columns; add rows for missing site (ae_zone), year, season combinations
+  tar_target(name = data_list_ae_exp, command = expand_by_site_year_season(data_list_ae))
+  
   )
   
 

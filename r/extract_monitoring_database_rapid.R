@@ -135,7 +135,10 @@ extract_monitoring_database_rapid <- function(access_monitoring){
   # remove blank column 
   DataRASouth$Total <- NULL 
   
+  # remove this suspected duplicate row - same site / date with two rows
+  DataRASouth <- filter(DataRASouth, !(DataSiteNameOld == "BWunYP" & DateSet == "2020-02-22" & RapidAssessmentID == 1156))
   
+
   # COMBINE NORTHERN AND SOUTHERN DATA ---------------------------------------------
 
   ## MAKE COLUMNS THE SAME FOR NORTH AND SOUTH
@@ -148,6 +151,9 @@ extract_monitoring_database_rapid <- function(access_monitoring){
   names(DataRANorth) <- gsub(' ', '', tolower(names(DataRANorth)))
   names(DataRASouth) <- gsub(' ', '', tolower(names(DataRASouth)))
   
+  # in north, croptypeold is same as cropname in south 
+  DataRANorth <- rename(DataRANorth, cropname = croptypeold) 
+  
   # bind together
   DataRA <- bind_rows(DataRANorth, DataRASouth)
   
@@ -156,15 +162,18 @@ extract_monitoring_database_rapid <- function(access_monitoring){
   DataRA$northing <- NULL
   
 
-  # CLEAN ACTUAL DATA ----------------------------------
+  # CLEAN ACTUAL BURROW / CHEWCARD DATA ----------------------------------
   
   # ignore poo plates for now - we just care about active burrow counts and chewcards
   DataRA_clean <- dplyr::select(DataRA, !(contains("pooplate")))
 
+  # remove these rows where effort is unknown
+  DataRA_clean <- filter(DataRA_clean, !(grepl("Values 0-25 are the total number of active burrows lumped. Location of active burrows unknown, total distance walked unknown", DataRA_clean$burrowcomments)))
+  
   # summarise active burrow counts and effort
   DataRA_clean <- DataRA_clean %>%
-    mutate(burrow_effort = (ncol(select(DataRA, contains("activeburrow"))) - rowSums(is.na(select(DataRA, contains("activeburrow"))))) * 25, # metres searched for active burrows (25 m per column, 16 columns = possible 400 m searched, but subtract the possible by the number of NA's):
-           burrow_total = rowSums(select(DataRA, contains("activeburrow")), na.rm = T)) %>% # total number of active burrows counted
+    mutate(burrow_effort = (ncol(select(DataRA_clean, contains("activeburrow"))) - rowSums(is.na(select(DataRA_clean, contains("activeburrow"))))) * 25, # metres searched for active burrows (25 m per column, 16 columns = possible 400 m searched, but subtract the possible by the number of NA's):
+           burrow_total = rowSums(select(DataRA_clean, contains("activeburrow")), na.rm = T)) %>% # total number of active burrows counted
     select(!(contains(c("activeburrow")))) # remove old columns 
   
   # if effort = 0, make both effort and total are NA
@@ -174,7 +183,22 @@ extract_monitoring_database_rapid <- function(access_monitoring){
   # clean up chewcard column names
   names(DataRA_clean) <- gsub("...eaten", "", names(DataRA_clean))
 
+  
 
+  # REMOVE SURVEYS WITH NO-LITTLE EFFORT ---------------------------------------
+  # remove rows with very little effort - not worth modelling
+  
+  ## Burrows
+  # remove rows with less than 100 metres searched for burrow counts
+  DataRA_clean <- dplyr::filter(DataRA_clean, !(burrow_effort < 100))
+  
+  ## Chewcards
+  # first count chewcards deployed
+  DataRA_clean <- mutate(DataRA_clean, chewcards_deployed = ncol(select(DataRA_clean, contains("chewcard."))) - rowSums(is.na(select(DataRA_clean, contains("chewcard.")))))
+  # remove rows with less than 5 chewcards deployed
+  DataRA_clean <- filter(DataRA_clean, !(chewcards_deployed < 5))
+
+  
   # RENAME AND SUBSET COLUMNS -----------------------------------------------
   DataRA_clean2 <- transmute(DataRA_clean, 
                               # state,
@@ -196,6 +220,7 @@ extract_monitoring_database_rapid <- function(access_monitoring){
     unique()
 
     
+  
   # IN-CROP, FENCELINE OR SCRUB? --------------------------------------------
   #unique(DataRA_clean2$crop_type)
   #DataRA_clean2$position == "fence line", "fence", 

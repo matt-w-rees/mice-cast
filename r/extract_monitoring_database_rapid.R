@@ -128,7 +128,9 @@ extract_monitoring_database_rapid <- function(access_monitoring){
 
   # fix date mistakes
   DataRASouth$DateRecovered <- if_else(DataRASouth$RapidAssessmentID == 1269 | DataRASouth$RapidAssessmentID == 1271, ymd("2021-03-10"), ymd(DataRASouth$DateRecovered))
+  DataRANorth$DateRecovered <- if_else(DataRANorth$DateRecovered == "2002-06-22", ymd("2022-06-22"), DataRANorth$DateRecovered)
   #DataRA$daterecovered <- if_else(DataRA$RapidAssessmentID == 39136684, ymd("2013-06-22"), ymd(DataRA$daterecovered)) # CHECK don't need?
+  
   
   # fix inconsistent column names in south data for active burrow
   DataRASouth <- rename(DataRASouth, ActiveBurrow.225...250 = ActiveBurrow.225..250, ActiveBurrow.325...350 = ActiveBurrow325...350, ActiveBurrow.350...375 = ActiveBurrow.350..375)
@@ -204,7 +206,7 @@ extract_monitoring_database_rapid <- function(access_monitoring){
                               # state,
                               region = areaname,
                               site = sitename,
-                              subsite = datasitenameold, 
+                              subsite = if_else(is.na(datasitenameold), sitename,  datasitenameold),
                               longitude,
                               latitude, 
                               date_set = dateset, 

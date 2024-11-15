@@ -9,7 +9,7 @@ add_grdc_ae_region|function|05dace99d5efa29f|||||||||||||||
 attach_vars_agroeco_region|function|81e2c767e1cbfa77|||||||||||||||
 attach_vars_crop|function|9bc5595c10680923|||||||||||||||
 attach_vars_longpaddock|function|ceaa9a7ff4306f26|||||||||||||||
-attach_vars_precipitation|function|517c89e02881de02|||||||||||||||
+attach_vars_precipitation|function|0f890b07a3d8511a|||||||||||||||
 attach_vars_rainfall|function|62ab2f44bedcf6e8|||||||||||||||
 attach_vars_soil_moisture|function|253b4a40235a440b|||||||||||||||
 attach_vars_tmax|function|f51eaaa7e9593e66|||||||||||||||
@@ -18,17 +18,19 @@ clean_historic_data_coleambally|function|3cfac4c8a66c5ede|||||||||||||||
 clean_historic_data_qld|function|146832f213c1d9e9|||||||||||||||
 clean_historic_data_roseworthy|function|637aa70a1ed8d8a5|||||||||||||||
 clean_historic_data_walpeup|function|7047f07ee1547942|||||||||||||||
-clean_list_datatypes|function|683f1e781afb7044|||||||||||||||
-clean_monitoring_data_traps|function|e4eee1c7bcee1d3f|||||||||||||||
+clean_list_datatypes|function|70f1ea330ffd64f4|||||||||||||||
+clean_monitoring_data_traps|function|370e899989044298|||||||||||||||
 combine_datasets|function|54c3e497456ecd9d|||||||||||||||
 combine_trap_datasets|function|a73d2c0228bbd3c4|||||||||||||||
 condense_crops|function|2bd4a75387b3c026|||||||||||||||
-data_list|stem|8487c68c708a23d0|e6b3e232430574ed|3285cc06b89ef212|2033452966||t20027.3387222487s|a7fabb726ddc3632|50253|rds|local|vector|||0.169||
-data_list_ae|stem|015691bb4f0dcd1c|89128d0b7cc9144b|9cab9db877d6754b|1010414345||t20027.338724548s|851a658ca9d9a6df|52621|rds|local|vector|||0.182||
-data_list_ae_exp|stem|4f1ff37a68093294|00f3c52dcd780caf|5c2ac4e4790adb03|-1297311359||t20032.2597475945s|d5ec7da6991cacf5|52330|rds|local|vector|||0.086||
-data_monitoring_rapid|stem|3c56d8295936cf43|884e7ca1678427e2|c4d0fd8929f40ce8|-599649979||t20027.3349302959s|ef9096ea896f21b3|79239|rds|local|vector|||1.014||
+data_list|stem|068bfcf34a9ce044|e6b3e232430574ed|bb20b58a60fdcbfc|2033452966||t20042.2689651079s|f5837c10b57300fb|46783|rds|local|vector|||1.65||
+data_list_ae|stem|934d5ac5ae0e1490|89128d0b7cc9144b|a6460e8c39b9012b|1010414345||t20042.2689692573s|65a842f616d60837|49058|rds|local|vector|||0.326||
+data_list_ae_exp|stem|cf033000ebd42509|00f3c52dcd780caf|9bf7a4d74b7d8675|-1297311359||t20042.2690505994s|7ab2d41ff5061b77|50162|rds|local|vector|||0.818||
+data_list_ae_exp_rain|stem|70bc0ba1355ff87f|2e7374d62b0902e4|10366d109cabddf6|1742400799||t20042.2692008265s|e737f4413b6798da|64956|rds|local|vector|||5.62||
+data_list_ae_rain|stem|e036e9d5e62a133f|f3934ce6d423a3d2|5268cb3ef45e97eb|1423133620||t20041.33142462s|8430601486a2d9e5|49070|rds|local|vector|||57.01||
+data_monitoring_rapid|stem|36a61475e438d5b4|884e7ca1678427e2|4564b73092a8d867|-599649979||t20042.2689456588s|a68267ff303c65c9|79300|rds|local|vector|||1.127||
 data_monitoring_traps|stem|072a9f9ef8d8c097|b7411aec18d58d27|a64e18920ebad929|-1320872198||t20021.2107615546s|d930271576a2009d|54692|rds|local|vector|||0.823||
-data_monitoring_traps_clean|stem|dcd93addb8a84f18|cad39e985aad3d74|7a34e6e1cfc7cd4b|2064628492||t20021.2356207369s|d7ba996c9852f60e|41377|rds|local|vector|||0.209||
+data_monitoring_traps_clean|stem|a6b1b18e2c5e46cf|cad39e985aad3d74|7b503992d7965e04|2064628492||t20040.0253463599s|80f6dadca1f2547c|41370|rds|local|vector|||0.21||
 datatypes_list|stem|01fca5830e9b7d4d|e6b3e232430574ed|5cdaa5bac338f3de|1128016328||t20021.2644420705s|678589fb63baa03a|30376|rds|local|vector|||0.111||
 dl_maxt|function|927d00195eb64ea1|||||||||||||||
 dl_mint|function|f70c74f29106c248|||||||||||||||
@@ -37,10 +39,11 @@ dl_process_tmin|function|5bb0c4cbb38dd8a5|||||||||||||||
 dl_rain|function|900b173ea4379e4c|||||||||||||||
 dl_sm|function|2506aae13409e3c6|||||||||||||||
 download_soil_moisture_file|function|2506aae13409e3c6|||||||||||||||
-expand_by_site_year_season|function|17beb5d64b130b0a|||||||||||||||
+expand_by_site_year_adj_season|function|d95c09a6688bc790|||||||||||||||
+expand_by_site_year_season|function|b5fae654a18d4e68|||||||||||||||
 extract_ecology_database|function|57d99490a97c9446|||||||||||||||
 extract_monitoring_database|function|7b9ceccc8d9259a8|||||||||||||||
-extract_monitoring_database_rapid|function|d6e6a992f8227dc4|||||||||||||||
+extract_monitoring_database_rapid|function|26a0a99d2c573f47|||||||||||||||
 extract_monitoring_database_traps|function|3a5b4be253626d55|||||||||||||||
 format_data_for_mvgam|function|b462997ffdc1f7e4|||||||||||||||
 list_with_lagged_effects|function|ef87ff118d8b1349|||||||||||||||
@@ -48,6 +51,12 @@ mice_data_live_traps_report|stem|0dd545e63b54f981|abfe1180be3e39fc|994dbb26d7729
 mice_data_qmd|stem||c60b3cfe76d4b171|c8d27e8d5ae351ba|906420095||t19636.1089308699s||0|file|local|vector|||5.734||System command quarto failed
 mice_data_rapid_assessment_report|stem|0fda48ba12d21c15|c2b5aff59772a8b1|47ee17a18d4a13c6|-227361165|reports/mice_data_rapid_assessment.html*reports/mice_data_rapid_assessment.qmd|t19688.0581840009s||26418|file|local|vector|||2.18||Error running quarto cli.ℹ Rerun with quiet  FALSE to see the full error message.Caused by error System command quarto failed
 mice_data_report|stem|dcb30c1a50048100|79213e61f08f7eca|78ac616b975f9c71|-1545987686|mice_data_files*mice_data.html*mice_data.qmd|t19639.0353400848s|8f150d83bd8cd053|4801591|file|local|vector|||18.844||
+plot_data_burrows|function|a221fdaf750ba9cd|||||||||||||||
+plot_data_chewcards|function|a66ef8ff2f361186|||||||||||||||
+plot_data_traps|function|aa8b92dd7c87040a|||||||||||||||
+plot_list_burrows|stem|337168750651a078|aeb4cb6a3c078879|bb791fe22e3aa371|-1887530758||t20042.2691173974s|950ca289da12bbfe|327436|rds|local|vector|||5.683||
+plot_list_chewcards|stem|2cb5ab99265a810e|a13baff984658b31|f282b99e19ebffe2|-329960606||t20042.2690408049s|bcf7d0c732583773|566334|rds|local|vector|||6.009||
+plot_list_traps|stem|833f8e20508000e7|1b1caafdc98bbe73|4063929e737cb5bb|-1754044688||t20042.2691354401s|20668fb274ceadd9|224972|rds|local|vector|||1.492||
 proc_tmax|stem|d9b609fe3f5078f1|67f99ba86cd2cdbf|b9af1d2e03920d78|2089378407||t19739.4125976056s|dc756ff285e804e8|825775|rds|local|vector|||6359.833|package terra was built under R version 4.2.3|
 proc_tmin|stem|d9b609fe3f5078f1|4027b367eb63ac00|7ed2eb213680d306|-1864465895||t19739.4494791556s|dc756ff285e804e8|825775|rds|local|vector|||3185.289||
 x|object|d6865893d54dca47|||||||||||||||

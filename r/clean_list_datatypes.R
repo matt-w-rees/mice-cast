@@ -85,17 +85,24 @@ clean_list_datatypes <- function(data_monitoring_traps_clean, data_monitoring_ra
   
   # group elliots and longworths together 
   data_monitoring_traps_clean_filtered_night$trap_type <- if_else(!(data_monitoring_traps_clean_filtered_night$trap_type == "snapback"), "box_trap", data_monitoring_traps_clean_filtered_night$trap_type)
-  #table(data_monitoring_traps_clean_filtered_night$trap_type)
+
+  # remove snapback traps for now
+  data_monitoring_traps_clean_filtered_night <- dplyr::filter(data_monitoring_traps_clean_filtered_night, trap_type != "snapback") 
   
   # reformat into wide dataframe with repeat surveys in a session (one row) as columns 
   data_monitoring_traps_clean_filtered_wide <- data_monitoring_traps_clean_filtered_night %>% 
     dplyr::select(!(c(date, north_south, traps_set, phantoms))) %>%  # remove unneccesary columns 
     tidyr::pivot_wider(
+      names_sep = "",
       names_from = survey_night, # measured variables
       values_from = c('mice_night', 'traps_night'))
       
   
   # RAPID ASSESSMENT DATA: FUTHER CLEAN -----------------------------------------------------------
+  
+  # remove WA data 
+  data_monitoring_rapid_filtered <- dplyr::filter(data_monitoring_rapid_filtered, !(region %in% c("Albany", "Esperance", "Kwinana West", "Geraldton")))
+  
   # for consistency with trapping data
   data_monitoring_rapid_filtered <- rename(data_monitoring_rapid_filtered, date_start_session = date_set, date_end_session = date_recovered)
 
@@ -114,10 +121,34 @@ clean_list_datatypes <- function(data_monitoring_traps_clean, data_monitoring_ra
   data_monitoring_rapid_filtered_chewcards <- data_monitoring_rapid_filtered_chewcards %>%
     mutate(across(starts_with('chewcard.'), ~ifelse( .x > 0, 1, .x)))
   
+  # CLEAN SUBSITE NAMES - mostly because I did this for the traps 
+  # MALLEE: rename subsites for consistency - only the first few sessions had JW1StubPad / JW2Crop / JW2Edge - lets just assume naming convention changed / sites weren't moved far -- all the same coordinates and also, only happened for a few sessions so not worth accounting for 
+  data_monitoring_rapid_filtered_chewcards$subsite <- if_else(data_monitoring_rapid_filtered_chewcards$subsite == "JW1StubPad", "JWA TGCrop", data_monitoring_rapid_filtered_chewcards$subsite)
+  data_monitoring_rapid_filtered_chewcards$subsite <- if_else(data_monitoring_rapid_filtered_chewcards$subsite %in% c("JW2Crop"), "JWB TGCrop", data_monitoring_rapid_filtered_chewcards$subsite)
+  data_monitoring_rapid_filtered_chewcards$subsite <- if_else(data_monitoring_rapid_filtered_chewcards$subsite == "JWC Crop" & data_monitoring_rapid_filtered_chewcards$date_start_session < ymd("2015-01-01"), "JWA TGCrop", data_monitoring_rapid_filtered_chewcards$subsite)
+  data_monitoring_rapid_filtered_chewcards$subsite <- if_else(data_monitoring_rapid_filtered_chewcards$subsite == "JWC Crop" & data_monitoring_rapid_filtered_chewcards$date_start_session > ymd("2015-01-01"), "JWB TGCrop", data_monitoring_rapid_filtered_chewcards$subsite)
+  # and same for burrows
+  data_monitoring_rapid_filtered_burrows$subsite <- if_else(data_monitoring_rapid_filtered_burrows$subsite == "JW1StubPad", "JWA TGCrop", data_monitoring_rapid_filtered_burrows$subsite)
+  data_monitoring_rapid_filtered_burrows$subsite <- if_else(data_monitoring_rapid_filtered_burrows$subsite %in% c("JW2Crop"), "JWB TGCrop", data_monitoring_rapid_filtered_burrows$subsite)
+  data_monitoring_rapid_filtered_burrows$subsite <- if_else(data_monitoring_rapid_filtered_burrows$subsite == "JWC Crop" & data_monitoring_rapid_filtered_burrows$date_start_session < ymd("2015-01-01"), "JWA TGCrop", data_monitoring_rapid_filtered_burrows$subsite)
+  data_monitoring_rapid_filtered_burrows$subsite <- if_else(data_monitoring_rapid_filtered_burrows$subsite == "JWC Crop" & data_monitoring_rapid_filtered_burrows$date_start_session > ymd("2015-01-01"), "JWB TGCrop", data_monitoring_rapid_filtered_burrows$subsite)
+  
   
   # SAVE DATA TYPES AS LIST AND RETURN -------------------------------------------------
+  
+  # first arrange by date and site 
+  data_monitoring_traps_clean_filtered_wide <- dplyr::arrange(data_monitoring_traps_clean_filtered_wide, date_start_session, region, site, subsite)
+  data_monitoring_rapid_filtered_burrows <- dplyr::arrange(data_monitoring_rapid_filtered_burrows, date_start_session, region, site, subsite)
+  data_monitoring_rapid_filtered_chewcards <- dplyr::arrange(data_monitoring_rapid_filtered_chewcards, date_start_session, region, site, subsite)
+  
+  # make sure each row is unique and combine in a list
   data_list <- list(unique(data_monitoring_traps_clean_filtered_wide), unique(data_monitoring_rapid_filtered_burrows), unique(data_monitoring_rapid_filtered_chewcards))
   names(data_list) <- c("traps", "burrows", "chewcards")
+  
+  # save visualisation plots of missing data 
+  ggsave(vis_miss(data_list$traps), filename = "derived_data/data_vis/dataframes/data_traps_descending_date.png")
+  ggsave(vis_miss(data_list$burrows), filename = "derived_data/data_vis/dataframes/data_burrows_descending_date.png")
+  ggsave(vis_miss(data_list$chewcards), filename = "derived_data/data_vis/dataframes/data_chewcards_descending_date.png")
   
   return(data_list)
 

@@ -24,6 +24,13 @@ clean_monitoring_data_traps <- function(data){
   data$site <- dplyr::if_else(data$site == "Trifel1", "Trifel", data$site)
   # make same as ecology database
   data$areaname <- ifelse(data$areaname == "Central West", "Central West NSW", data$areaname)
+
+  ## CLEAN SUBSITE NAMES  
+  # MALLEE: rename subsites for consistency - only the first few sessions had JW1StubPad / JW2Crop / JW2Edge - lets just assume naming convention changed / sites weren't moved far -- all the same coordinates and also, only happened for a few sessions so not worth accounting for 
+  data$datasitenameold <- if_else(data$datasitenameold == "JW1StubPad", "JWA TGCrop", data$datasitenameold)
+  data$datasitenameold <- if_else(data$datasitenameold %in% c("JW2Crop"), "JWB TGCrop", data$datasitenameold)
+  data$datasitenameold <- if_else(data$datasitenameold == "JWC Crop" & data$date < ymd("2015-01-01"), "JWA TGCrop", data$datasitenameold)
+  data$datasitenameold <- if_else(data$datasitenameold == "JWC Crop" & data$date > ymd("2015-01-01"), "JWB TGCrop", data$datasitenameold)
   
   
   ## COORDINATE ERRORS

@@ -3,28 +3,30 @@ expand_by_site_year_season <- function(data_list){
   # load list of data for testing
   #tar_load(data_list_ae)
   #data_list <- data_list_ae
-  
-# ADD SEASON COLUMN -------------------------------------------------------
+
+  # ADD SEASON COLUMN -------------------------------------------------------
 
   # first, add season information columns
-  add_year_season <- function(data){
+  add_year_adj_season <- function(data){
     
     # specify seasons - used later in mutate function
     seasons <- c("DJF", "DJF", "MAM", "MAM", "MAM", "JJA", "JJA", "JJA", "SON", "SON", "SON", "DJF")
     
     data <- data %>%
       arrange(region, site, subsite, date_start_session) %>%
-      mutate(year = year(date_end_session),
+      mutate(year_adj = year(date_end_session), # will adjust for december below
              season = factor(seasons[month(date_end_session)], levels = unique(seasons)))
+    
+    # for December surveys, change year_adj to the next to differentiate JAN / DECEMBER within an actual year_adj
+    data$year_adj <- if_else(month(data$date_end_session) == 12, data$year_adj + 1, data$year_adj)
 
     return(data)
   }
   
   # use the function
-  data_list_season <- lapply(data_list, add_year_season)
+  data_list_season <- lapply(data_list, add_year_adj_season)
   
-  return(data_list_season)
-
+  
   # SPLIT LIST --------------------------------------------------------------
   # split into seperate dataframes
   data_traps <- data_list_season$traps
@@ -46,9 +48,9 @@ expand_by_site_year_season <- function(data_list){
   data_traps_adj$season <- if_else(data_traps_adj$subsite == "JWA TGCrop" & data_traps_adj$date_end_session == "2022-08-10", "SON", data_traps_adj$season)
   data_traps_adj$season <- if_else(data_traps_adj$subsite == "JWB TGCrop" & data_traps_adj$date_end_session == "2022-08-10", "SON", data_traps_adj$season)
   
-  # flag surveys where multiple conducted within a years season / at a site 
+  # flag surveys where multiple conducted within a year_adjs season / at a site 
   data_traps_adj |>
-    dplyr::group_by(ae_zone, site, subsite, season, year, trap_type) |> 
+    dplyr::group_by(ae_zone, site, subsite, season, year_adj, trap_type) |> 
     mutate(duplicates_season = n()) |> 
     ungroup() |> 
     filter(duplicates_season > 1)
@@ -66,7 +68,7 @@ expand_by_site_year_season <- function(data_list){
     
     ## add column identifying duplicate season
     data <- data |>
-      dplyr::group_by(ae_zone, site, subsite, crop_type, crop_stage, season, year) |> 
+      dplyr::group_by(ae_zone, site, subsite, crop_type, crop_stage, season, year_adj) |> 
       mutate(duplicate_season = if_else(n() > 1, "yes", "no")) |> 
       ungroup()
     # check out how many 
@@ -88,7 +90,7 @@ expand_by_site_year_season <- function(data_list){
     
     # calculate dupes again 
     data <- data |>
-      dplyr::group_by(ae_zone, site, subsite, crop_type, crop_stage, season, year) |> 
+      dplyr::group_by(ae_zone, site, subsite, crop_type, crop_stage, season, year_adj) |> 
       mutate(duplicate_season = if_else(n() > 1, "yes", "no")) |> 
       ungroup()
     # check out what changed 
@@ -107,7 +109,7 @@ expand_by_site_year_season <- function(data_list){
   
   ## BURROW COUNTS - if there are duplicates, simply add counts and effort together (redo same columns), remove remove date columns as they are no longer relevant and repeat rows
   data_burrows_adj <- data_burrows_adj |>
-    group_by(site, subsite, season, year, crop_type, crop_stage) |> 
+    group_by(site, subsite, season, year_adj, crop_type, crop_stage) |> 
     mutate(burrow_total = sum(burrow_total),
            burrow_effort = sum(burrow_effort)) |> 
     ungroup() |> 
@@ -117,7 +119,7 @@ expand_by_site_year_season <- function(data_list){
   ## CHEWCARDS 
   # currently max of two duplicates, and these all have max 10 chewcards deployed. 
   data_chewcards_adj <- data_chewcards_adj |>
-    group_by(site, subsite, season, year, crop_type, crop_stage) |> 
+    group_by(site, subsite, season, year_adj, crop_type, crop_stage) |> 
     mutate(duplicates_season = n(),
            ID = row_number()) |> 
     ungroup() 
@@ -147,18 +149,34 @@ expand_by_site_year_season <- function(data_list){
   names(data_list_adj) <- c("traps", "burrows", "chewcards")
   
 
+  # REMOVE SITES WITH ONLY FEW SURVEYS --------------------------------------
+  filter_sites <- function(data){
+   data <- data %>%
+    group_by(subsite) %>% 
+    dplyr::filter(n() >= 8) %>%  # 2 years or more worth of data
+  ungroup()
+  return(data)}
+  # use the function on a list
+  data_list_adj <- lapply(data_list_adj, filter_sites)
+ 
+  
   # EXPAND DATAFRAMES FOR MISSING SURVEYS PER SEASON ------------------------
 
-  add_missing_season <- function(data){
+  add_missing_seasons <- function(data){
   
-    # make a new dataframe for every season x year from the start
-    x <- expand.grid(ae_zone = unique(data$ae_zone), ## MIGHT NEED TO THINK ABOUT THIS AGAIN?
+    # make a new dataframe for every season x year_adj from the start
+    x <- expand.grid(subsite = unique(data$subsite), ## MIGHT NEED TO THINK ABOUT THIS AGAIN?
                      season = c("DJF", "MAM", "JJA", "SON"),
-                     year = seq(min(data$year), max(data$year), 1))
+                     year_adj = seq(min(data$year_adj) - 4, # go back 4 years for lagged effects
+                                    max(data$year_adj), 
+                                    1))
     
-    # now add to real data so there is a row for every missed season / year
-    data_missing <- full_join(data, x) #%>%
-      #arrange(year, season, ae_zone)
+    # now add to real data so there is a row for every missed season / year_adj
+    data_missing <- full_join(data, x) %>%
+      arrange(year_adj, season, ae_zone, subsite)
+    
+    # fill in site data information 
+    data_missing <- tidyr::fill(data_missing, c(region, site, longitude, latitude, ae_zone), .direction = c("downup"))  # fill in NA's
     
     # give back new dataframe 
     return(data_missing)
@@ -166,7 +184,7 @@ expand_by_site_year_season <- function(data_list){
 }
 
   # use the function on the list
-  data_list_adj_exp <- lapply(data_list_adj, add_missing_season)
+  data_list_adj_exp <- lapply(data_list_adj, add_missing_seasons)
 
   # return list
   return(data_list_adj_exp)
@@ -179,7 +197,7 @@ expand_by_site_year_season <- function(data_list){
 
 # filter to repeat surveys per site / season
 # data |>
-#   dplyr::group_by(ae_zone, subsite, season, year, crop_type, crop_stage, date_start_session) |> # trap_type
+#   dplyr::group_by(ae_zone, subsite, season, year_adj, crop_type, crop_stage, date_start_session) |> # trap_type
 #   mutate(count = n(),
 #          fini = date_start_session, 
 #          fend = lead(date_end_session), 
@@ -187,4 +205,4 @@ expand_by_site_year_season <- function(data_list){
 #   #na.omit() %>%
 #   filter(count > 1) %>%
 #   ungroup() %>%
-#   arrange(ae_zone, subsite, season, year)
+#   arrange(ae_zone, subsite, season, year_adj)

@@ -9,7 +9,7 @@ library(tarchetypes)
 
 # Set target options:
 tar_option_set(
-  packages = c("tidyverse", "Hmisc", "sjlabelled", "sf", "cropgrowdays", "RcppRoll", "readxl", "qs", "terra", "extractOz"), # packages that your targets need to run
+  packages = c("tidyverse", "Hmisc", "sjlabelled", "sf", "cropgrowdays", "RcppRoll", "readxl", "qs", "terra", "extractOz", "visdat"), # packages that your targets need to run
   format = "rds" # default storage format
   # Set other options as needed.
 )
@@ -42,8 +42,16 @@ list(
   # add AE ZONE 
   tar_target(name = data_list_ae, command = lapply(data_list, attach_vars_agroeco_region)),
   
-  # add season and year columns; add rows for missing site (ae_zone), year, season combinations
-  tar_target(name = data_list_ae_exp, command = expand_by_site_year_season(data_list_ae))
+  # plot data (probably not the best idea to monitor the list, rather should do the actual plot files...)
+  tar_target(name = plot_list_traps, command = plot_data_traps(data_list_ae)),
+  tar_target(name = plot_list_chewcards, command = plot_data_chewcards(data_list_ae)),
+  tar_target(name = plot_list_burrows, command = plot_data_burrows(data_list_ae)),
+  
+  # add season and year columns; add rows for missing site (subsite), year, season combinations
+  tar_target(name = data_list_ae_exp, command = expand_by_site_year_season(data_list_ae)),
+  
+  # add rainfall data
+  tar_target(name = data_list_ae_exp_rain, command = lapply(data_list_ae_exp, attach_vars_precipitation))
   
   )
   

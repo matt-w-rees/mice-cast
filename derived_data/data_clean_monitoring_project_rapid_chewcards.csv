@@ -82,8 +82,8 @@ Callide Valley,Ardnith 12 - 13,Ardnith 13,150.4935711,-24.2938722,2013-05-28,201
 Callide Valley,Grandview 7 - 9,Grandview 8,150.5388683,-24.3247873,2013-05-28,2013-05-29,wheat,young (no flowers/head),"5,700 kg/ha",0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Callide Valley,Rosehill 17 - 18,Rosehill 17,150.397709,-24.2102516,2013-05-28,2013-05-29,wheat,young (no flowers/head),">20,000 kg/ha",0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Callide Valley,Site 10 - 11,Site 10,150.5284506,-24.3534709,2013-05-28,2013-05-29,wheat,young (no flowers/head),">5,000 kg/ha",0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
+Callide Valley,Grandview  19 - 20,Grandview  19 - 20,150.3808218,-24.2001987,2013-05-29,2013-05-30,unburned/unmown road verge,n/a,">20,000 kg/ha",0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Callide Valley,Grandview  19 - 20,Grandview  20,150.3808218,-24.2001987,2013-05-29,2013-05-30,wheat,young (no flowers/head),"5,700 kg/ha",0,0,0,0,0,0,0,1,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
-Callide Valley,Grandview  19 - 20,NA,150.3808218,-24.2001987,2013-05-29,2013-05-30,unburned/unmown road verge,n/a,">20,000 kg/ha",0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Callide Valley,Horsley Cross 5 - 6,Horsley Cross 5,150.529502,-24.4216097,2013-05-29,2013-05-30,unburned/unmown road verge,n/a,">20,000 kg/ha",0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Callide Valley,Horsley Cross 5 - 6,Horsley Cross 6,150.529502,-24.4216097,2013-05-29,2013-05-30,sorghum,mature (flowers/heads),">20,000 kg/ha",0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Callide Valley,Jambin 21- 22,Jambin 21,150.3766,-24.2088783,2013-05-29,2013-05-30,sorghum,mulch (stubble cut/unploughed),"2,500 kg/ha",0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
@@ -269,10 +269,10 @@ Dawson Valley,Toolangi 8 and 9,Toolangi 8,150.1408231,-24.581067,2014-01-02,2014
 Dawson Valley,Toolangi 8 and 9,Toolangi 9,150.1408231,-24.581067,2014-01-02,2014-01-03,unburned/unmown road verge,n/a,">20,000 kg/ha",0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,"x10 snap-back traps set, x1 male adult (19g 80mm)"
 Callide Valley,Ardnith 12 - 13,Ardnith 12,150.4935711,-24.2938722,2014-01-03,2014-01-04,mown road verge (recent),n/a,"9,200 kg/ha",0,0,0.5,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Callide Valley,Ardnith 12 - 13,Ardnith 13,150.4935711,-24.2938722,2014-01-03,2014-01-04,chickpea/mung beans,young (no flowers/head),"3,520 kg/ha",0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
-Callide Valley,Grandview  19 - 20,NA,150.3808218,-24.2001987,2014-01-03,2014-01-04,wheat,stubble  (heads harvested),"7,300 kg/ha",0,1,1,0.5,1,1,0.5,0.5,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,"x10 snap-back traps set, nil."
-Callide Valley,Grandview  19 - 20,NA,150.3808218,-24.2001987,2014-01-03,2014-01-04,unburned/unmown road verge,n/a,"10,670 kg/ha",0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
-Callide Valley,Grandview 7 - 9,NA,150.5388683,-24.3247873,2014-01-03,2014-01-04,sorghum,young (no flowers/head),">20,000 kg/ha",0,0,0.5,0,0.5,0,0,0,0.5,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,"x10 snap-back traps set; x1 male (15g, 80mm)"
-Callide Valley,Grandview 7 - 9,NA,150.5388683,-24.3247873,2014-01-03,2014-01-04,mown road verge (recent),n/a,">13,000 kg/ha",0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
+Callide Valley,Grandview  19 - 20,Grandview  19 - 20,150.3808218,-24.2001987,2014-01-03,2014-01-04,wheat,stubble  (heads harvested),"7,300 kg/ha",0,1,1,0.5,1,1,0.5,0.5,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,"x10 snap-back traps set, nil."
+Callide Valley,Grandview  19 - 20,Grandview  19 - 20,150.3808218,-24.2001987,2014-01-03,2014-01-04,unburned/unmown road verge,n/a,"10,670 kg/ha",0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
+Callide Valley,Grandview 7 - 9,Grandview 7 - 9,150.5388683,-24.3247873,2014-01-03,2014-01-04,sorghum,young (no flowers/head),">20,000 kg/ha",0,0,0.5,0,0.5,0,0,0,0.5,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,"x10 snap-back traps set; x1 male (15g, 80mm)"
+Callide Valley,Grandview 7 - 9,Grandview 7 - 9,150.5388683,-24.3247873,2014-01-03,2014-01-04,mown road verge (recent),n/a,">13,000 kg/ha",0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Callide Valley,Horsley Cross 5 - 6,Horsley Cross 5,150.529502,-24.4216097,2014-01-03,2014-01-04,unburned/unmown road verge,n/a,">20,000 kg/ha",0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Callide Valley,Horsley Cross 5 - 6,Horsley Cross 6,150.529502,-24.4216097,2014-01-03,2014-01-04,chickpea/mung beans,young (no flowers/head),"1,160 kg/ha",0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Callide Valley,Rosehill 17 - 18,Rosehill 17,150.397709,-24.2102516,2014-01-03,2014-01-04,wheat,stubble  (heads harvested),"7,300 kg/ha",0,0,0,1,0,0,0,2,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
@@ -827,14 +827,14 @@ Eyre Peninsula,Schmidt's,Schmidt's EP,136.401573,-33.155641,2016-05-04,2016-05-0
 Eyre Peninsula,Thomson,Thomson EP,136.212344,-33.209588,2016-05-04,2016-05-05,wheat,stubble,NA,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,No cards chewed
 Downs Central,Trifel,TriEGrid,151.45981,-27.74426,2016-06-20,2016-06-21,chickpea/mung beans,young (no flowers/head),,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Downs Central,Trifel,TriWLine,151.45981,-27.74426,2016-06-20,2016-06-21,sorghum,stubble  (heads harvested),,10,45,10,0,0,5,5,0,60,20,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
-CW Gin Gin,Hassal,NA,148.557316,-31.556793,2016-06-21,2016-06-22,NA,NA,,50,40,20,50,60,60,20,40,20,20,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
+CW Gin Gin,Hassal,Hassal,148.557316,-31.556793,2016-06-21,2016-06-22,NA,NA,,50,40,20,50,60,60,20,40,20,20,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Downs Central,Formartin,Formartin,151.42749,-27.46792,2016-06-21,2016-06-22,sorghum,stubble  (heads harvested),,10,0,10,0.5,0.5,5,0.5,50,50,20,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Downs Central,Formartin,Formartin,151.42749,-27.46792,2016-06-21,2016-06-22,sorghum,stubble  (heads harvested),,50,40,20,50,60,60,20,40,20,20,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,Mouse seen running around paddock.
 Downs Central,Kummerow,Kummerow,151.54674,-27.30968,2016-06-21,2016-06-22,sorghum,stubble  (heads harvested),,0,0,5,0,0,0,0.1,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
-Downs Southern,Crothers,NA,152.029869,-28.124889,2016-06-21,2016-06-22,NA,NA,,50,40,20,50,60,60,20,40,20,20,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
-Downs Southern,Huggins,NA,151.766553,-27.758246,2016-06-21,2016-06-22,NA,NA,,50,40,20,50,60,60,20,40,20,20,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
-Downs Southern,Pilton,NA,151.996,-27.868,2016-06-21,2016-06-22,NA,NA,,50,40,20,50,60,60,20,40,20,20,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
-Downs Southern,Ryford Pratten RD,NA,151.768,-27.994,2016-06-21,2016-06-22,NA,NA,,50,40,20,50,60,60,20,40,20,20,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
+Downs Southern,Crothers,Crothers,152.029869,-28.124889,2016-06-21,2016-06-22,NA,NA,,50,40,20,50,60,60,20,40,20,20,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
+Downs Southern,Huggins,Huggins,151.766553,-27.758246,2016-06-21,2016-06-22,NA,NA,,50,40,20,50,60,60,20,40,20,20,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
+Downs Southern,Pilton,Pilton,151.996,-27.868,2016-06-21,2016-06-22,NA,NA,,50,40,20,50,60,60,20,40,20,20,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
+Downs Southern,Ryford Pratten RD,Ryford Pratten RD,151.768,-27.994,2016-06-21,2016-06-22,NA,NA,,50,40,20,50,60,60,20,40,20,20,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Northern Mallee,Colin Aikman,CAik,141.870913,-35.218871,2016-06-21,2016-06-22,barley,seedling,NA,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,No cards chewed
 Northern Mallee,Colin Beer,CBee,141.293619,-35.231295,2016-06-21,2016-06-22,wheat,seedling,NA,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,No cards chewed
 Northern Mallee,David Allen,DAlle,141.194131,-35.271539,2016-06-21,2016-06-22,wheat,seedling,NA,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,No cards chewed
@@ -1196,7 +1196,7 @@ Downs Central,Formartin,Formartin,151.42749,-27.46792,2018-06-13,2018-06-14,sorg
 Downs Central,Kummerow,Kummerow,151.54674,-27.30968,2018-06-13,2018-06-14,sorghum,stubble  (heads harvested),,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Downs Central,Rothes,Rothes,151.31515,-27.58428,2018-06-13,2018-06-14,sorghum,stubble  (heads harvested),,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Downs Central,Trifel,TriELine,151.45981,-27.74426,2018-06-13,2018-06-14,sorghum,stubble  (heads harvested),,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
-Downs Central,Trifel1,NA,150.08104,-26.87163,2018-06-13,2018-06-14,fallow (bare surface),fallow,,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
+Downs Central,Trifel1,Trifel1,150.08104,-26.87163,2018-06-13,2018-06-14,fallow (bare surface),fallow,,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Downs Northern,Arrawatta,Arrawatta,150.80341,-26.024555,2018-06-13,2018-06-14,sorghum,stubble  (heads harvested),,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Downs Northern,Cooper,Cooper,150.9543,-26.88665,2018-06-13,2018-06-14,fallow (bare surface),fallow,,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Downs Northern,Gosden,Gosden,150.73264,-26.795783,2018-06-13,2018-06-14,fallow (bare surface),fallow,,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,9,
@@ -1480,7 +1480,7 @@ Downs Central,Waddells 1,Waddells 1,151.44809,-27.39602,2019-09-22,2019-09-23,wh
 Downs Northern,Cooper,Cooper,150.9543,-26.88665,2019-09-22,2019-09-23,sorghum,stubble  (heads harvested),,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,No sign of mice.
 Downs Northern,Milne,Milne,151.24127,-27.09526,2019-09-22,2019-09-23,fallow (bare surface),n/a,,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,No sign of mice.
 Downs Northern,Waddells 2,Waddells 2,150.953413,-26.703515,2019-09-22,2019-09-23,sorghum,stubble  (heads harvested),,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,No sign of mice.
-Downs Northern,Warra RD,NA,151.0616,-26.881,2019-09-22,2019-09-23,unknown,mature (flowers/heads),Faba beans,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,No sign of mice.
+Downs Northern,Warra RD,Warra RD,151.0616,-26.881,2019-09-22,2019-09-23,unknown,mature (flowers/heads),Faba beans,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,No sign of mice.
 Goondiwindi,Killawarra,Killawarra,150.28199,-27.61304,2019-09-24,2019-09-25,millet,young (no flowers/head),Poor Millet,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,No sign of mice.
 Goondiwindi,Traighli,Traighli,150.34404,-27.68009,2019-09-24,2019-09-25,wheat,young (no flowers/head),,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,No sign of mice.
 Moree,Alawah,Alawah,150.076595,-28.978815,2019-09-24,2019-09-25,wheat,young (no flowers/head),,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,No sign of mice.
@@ -1635,10 +1635,10 @@ Goondiwindi,Traighli,Traighli,150.34404,-27.68009,2020-07-28,2020-07-29,chickpea
 Goondiwindi,Yarrabilla,Yarrabilla,150.28865,-28.27324,2020-07-28,2020-07-29,wheat,young (no flowers/head),70 medium,1,0,3,0,0,1,1,0,1,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,low sign of mice
 Downs Central,Trifel,TriEGrid,151.45981,-27.74426,2020-07-30,2020-07-31,fallow (bare surface),fallow,0% and low biomass,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Downs Central,Trifel,TriWSnap,151.45981,-27.74426,2020-07-30,2020-07-31,wheat,young (no flowers/head),40% and medium biomass,1,1,1,0.5,2,0.5,1,1,2,7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,"Card 6 had letter ""(P)"" beside it"
-Downs Southern,B Bonie,NA,151.69299,-28.013207,2020-07-30,2020-07-31,oats,young (no flowers/head),70% and medium biomass,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
-Downs Southern,D Peters,NA,151.935791,-28.040614,2020-07-30,2020-07-31,sorghum,stubble  (heads harvested),0% and low biomass,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
+Downs Southern,B Bonie,B Bonie,151.69299,-28.013207,2020-07-30,2020-07-31,oats,young (no flowers/head),70% and medium biomass,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
+Downs Southern,D Peters,D Peters,151.935791,-28.040614,2020-07-30,2020-07-31,sorghum,stubble  (heads harvested),0% and low biomass,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Downs Southern,Felton,Felton,151.770236,-27.801361,2020-07-30,2020-07-31,sorghum,stubble  (heads harvested),0% and low biomass,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
-Downs Southern,S Peters,NA,151.80341,-28.024555,2020-07-30,2020-07-31,wheat,young (no flowers/head),30% and low-medium biomass,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
+Downs Southern,S Peters,S Peters,151.80341,-28.024555,2020-07-30,2020-07-31,wheat,young (no flowers/head),30% and low-medium biomass,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Central West,Col Hall,Col Hall,147.4138,-33.1442,2020-09-02,2020-09-03,wheat,tillering,NA,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,no cards chewed
 Central West,Helen Longhurst GR4,GR4,147.81459,-33.1564,2020-09-02,2020-09-03,barley,tillering,NA,30,1,1,0,1,0,1,0,2,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,medium levels of activity
 Central West,James Nixon,Nixon,147.57302,-33.14626,2020-09-02,2020-09-03,barley,tillering,NA,0,0,0,0,0,1,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,very low sign of activity
@@ -1705,7 +1705,7 @@ Goondiwindi,Killawarra,Killawarra,150.28199,-27.61304,2020-11-30,2020-12-01,sorg
 Goondiwindi,Retreat,Retreat,150.33384,-27.86196,2020-11-30,2020-12-01,grazed stubble / mulch,stubble  (heads harvested),25% ground cover. Low biomass.,0,0,0,0,0,0,0,5,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,One card chewed.
 Goondiwindi,Yarrabilla,Yarrabilla,150.28865,-28.27324,2020-11-30,2020-12-01,wheat,stubble  (heads harvested),20% ground cover. Low-Med biomass.,0,0,0,0,0,0,0,3,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,One card chewed.
 Downs Central,Trifel,TriEGrid,151.45981,-27.74426,2020-12-02,2020-12-03,sorghum,stubble  (heads harvested),10% and low biomass,0.5,0,0.5,0,0,0.5,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
-Downs Southern,S Peters,NA,151.80341,-28.024555,2020-12-02,2020-12-03,barley,stubble  (heads harvested),60% and medium biomass,0,0,0,0,0,0,0,1,1,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
+Downs Southern,S Peters,S Peters,151.80341,-28.024555,2020-12-02,2020-12-03,barley,stubble  (heads harvested),60% and medium biomass,0,0,0,0,0,0,0,1,1,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Moree,Boonery,Boonery,149.99117,-29.00356,2020-12-06,2020-12-07,chickpea/mung beans,stubble  (heads harvested),No % cover and low biomass,0,1,1,1,0,1,1,1,1,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Moree,Glenayr,Glenayr,150.12524,-28.89312,2020-12-06,2020-12-07,unknown,stubble  (heads harvested),No % cover and low biomass,0,1,0,0,0,1,0,0,1,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Moree,Kingsley,Kingsley,149.89978,-29.42085,2020-12-06,2020-12-07,chickpea/mung beans,stubble  (heads harvested),No% cover and low biomass,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
@@ -2081,7 +2081,7 @@ Central West,Steven Hodges STH02,STH02,147.70875,-33.23237,2022-06-16,2022-06-17
 Central West,Steven Hodges STH03,STH03,147.78694,-33.24196,2022-06-16,2022-06-17,pasture,NA,NA,0,0,NA,0,0,0,0,NA,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,8,Card 3- birds. Card 8- missing.
 Central West,Tim Moon,Tim Moon,147.48473,-33.11158,2022-06-16,2022-06-17,wheat,seeding,NA,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Liverpool Plains,Baker,Baker,150.373962,-31.203925,2022-06-21,2022-06-22,sorghum,fallow,50% ground cover. Medium biomass. Sorghum stubble old.,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
-Liverpool Plains,Donaldson,Donaldson,150.064208,-30.739469,2022-06-21,2002-06-22,cereal,fallow,70% ground cover. Medium biomass. Cereal stubble old,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
+Liverpool Plains,Donaldson,Donaldson,150.064208,-30.739469,2022-06-21,2022-06-22,cereal,fallow,70% ground cover. Medium biomass. Cereal stubble old,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Liverpool Plains,Grant,Grant,150.553969,-31.394433,2022-06-21,2022-06-22,sorghum,fallow,100% ground cover. High biomass. Sorghum stubble.,0,0,0,0,0,10,0,0,5,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Liverpool Plains,Hobdon,Hobdon,150.005986,-30.603342,2022-06-21,2022-06-22,wheat,young (no flowers/head),50% ground cover. Low biomass.,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
 Liverpool Plains,Hubbard,Hubbard,150.278447,-31.128569,2022-06-21,2022-06-22,fallow (bare surface),fallow,0% biomass. Low ground cover. Cultivated fallow.,0,0,0,0,0,0,0,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,10,
